@@ -1,15 +1,29 @@
 import React, {useEffect} from 'react';
 import {LoaderWrapper} from "./loaderStyles";
 import {gsap} from "gsap";
+import { MotionPathPlugin } from "gsap/dist/MotionPathPlugin";
+
 
 const Loader = () => {
     useEffect(() => {
+        gsap.registerPlugin(MotionPathPlugin);
+        const R = 300
+
         const ellipse1 = document.querySelector('#Ellipse_1');
         const ellipse2 = document.querySelector('#Ellipse_2');
         const ellipse3 = document.querySelector('#Ellipse_3');
-        gsap.to(ellipse1, {duration: 1, rotate: 270, ease: "none", repeat: -1, repeatDelay: .5, yoyo: true});
-        gsap.to(ellipse2, {duration: 1, rotate: 270, ease: "none", repeat: -1, repeatDelay: .5, yoyo: true, delay: .5});
-        gsap.to(ellipse3, {duration: 1, rotate: 270, ease: "none", repeat: -1, repeatDelay: .5, yoyo: true, delay: 1});
+        gsap.to(ellipse1, {duration: 2, motionPath: {
+                path: [{x:0,y:0},{x:R/2,y:R/2},{x:0,y:R},{x:-R/2,y:R/2},{x:0,y:0}], // you probably want more points here...or just use an SVG <path>!
+                curviness: 1.5,
+            }, transformOrigin: "center", ease:"power0.easeNone", repeat: -1, yoyo: true});
+        gsap.to(ellipse2, {duration: 2, motionPath: {
+                path: [{x:0,y:0},{x:R/2,y:R/2},{x:0,y:R},{x:-R/2,y:R/2},{x:0,y:0}], // you probably want more points here...or just use an SVG <path>!
+                curviness: 1.5,
+            }, transformOrigin: "center", ease:"power0.easeNone", repeat: -1, yoyo: true, delay: .5});
+        gsap.to(ellipse3, {duration: 2, motionPath: {
+                path: [{x:0,y:0},{x:R/2,y:R/2},{x:0,y:R},{x:-R/2,y:R/2},{x:0,y:0}], // you probably want more points here...or just use an SVG <path>!
+                curviness: 1.5,
+            }, transformOrigin: "center", ease:"power0.easeNone", repeat: -1, yoyo: true, delay: 1});
     });
     return (
         <LoaderWrapper>
