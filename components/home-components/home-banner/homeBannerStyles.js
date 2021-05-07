@@ -7,11 +7,13 @@ export const HomeBannerWrapper = styled.div`
   background-color: ${palette.black};
   color: ${palette.white};
   padding: 130px 0 50px;
-
-  img {
-    width: 100% !important;
-    min-width: 100% !important;
-    min-height: 100% !important;
+  
+  
+  @media only screen and (max-width: 600px) {
+    img {
+      height: 50px !important;
+      width: auto !important;
+    }
   }
 
   @media only screen and (min-width: 600px) {

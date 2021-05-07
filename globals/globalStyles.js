@@ -299,5 +299,11 @@ export const ImageFillContainer = styled.div`
   img {
     object-fit: cover;
   }
+  
+  @media only screen and (max-width: 600px) {
+    ${({phoneHeight}) => phoneHeight && css`
+      height: ${phoneHeight};
+    ` }
+  }
 `;
 

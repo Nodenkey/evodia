@@ -8,7 +8,7 @@ const HomeBanner = () => {
     return (
         <HomeBannerWrapper>
             <Container>
-                <Grid num='2' fullHeight>
+                <Grid num='2' fullHeight phoneGap='50px'>
                     <HomeBannerTextContainer>
                         <HeaderOne>
                             Evodia <br/>
@@ -21,7 +21,7 @@ const HomeBanner = () => {
                         </Paragraph>
                         <Button>Shop Now</Button>
                     </HomeBannerTextContainer>
-                    <ImageFillContainer>
+                    <ImageFillContainer phoneHeight='50vh'>
                         <Image src='/assets/images/jpg/evodia-home.jpg' layout='fill' alt='perfumes'/>
                     </ImageFillContainer>
                 </Grid>
