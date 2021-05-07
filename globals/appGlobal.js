@@ -40,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Rockwell';
-    font-display: swap;
+    font-display: block;
     src: url('/fonts/rockwen.ttf');
   }
 
