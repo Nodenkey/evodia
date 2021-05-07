@@ -1,15 +1,12 @@
-import Head from 'next/head'
-import Loader from "../components/loader/loader";
+import HomeBanner from "../components/home-components/home-banner/homeBanner";
+import {useEffect} from "react";
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Evodia | Home</title>
-        <meta name="description" content="Evodia web app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-        <Loader/>
-    </>
-  )
+export default function Home({setPath, setDescription}) {
+    useEffect(() => {
+        setPath('Home');
+        setDescription('Evodia web app');
+    })
+    return (
+        <HomeBanner/>
+    )
 }

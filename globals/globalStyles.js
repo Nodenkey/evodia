@@ -8,10 +8,11 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 32px;
   position: relative;
-  width: ${props => (props.fluid ? '100%' : 'auto')};
   height: 100%;
   align-items: center;
   justify-content: center;
+  width: ${props => (props.fluid ? '100% !important' : 'auto')};
+  max-width: ${props => (props.fluid ? '100% !important' : 'auto')};
 
   @media (min-width: 1024px) {
     max-width: 960px;
@@ -106,6 +107,11 @@ export const Grid = styled.div`
             `};
     width: 100%;
   }
+  ${({fullHeight}) =>
+          fullHeight &&
+          css`
+            height: 100%;
+          `}
   ${({oneColumnIPad}) =>
           oneColumnIPad &&
           css`
@@ -120,7 +126,9 @@ export const HeaderOne = styled.h1`
   font-size: ${typeScale.headerTwo};
   display: block;
   line-height: 120%;
-  font-weight: bold;
+  font-weight: normal;
+  font-family: Rockwell, serif;
+  letter-spacing: .05em;
   @media only screen and (min-width: 600px) {
     font-size: ${typeScale.headerOne};
   }
@@ -256,20 +264,19 @@ export const BannerWrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 
-	${({overlayed} )=> overlayed && css`
-		&::before {
-			content: '';
-			height: 100%;
-			width: 100%;
-			z-index: 1;
-			left: 0;
-			top: 0;
-			background-color: black;
-			opacity: ${({opacity}) => opacity};
-			position: absolute;
-		}
-	`}
-
+  ${({overlayed}) => overlayed && css`
+    &::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      background-color: black;
+      opacity: ${({opacity}) => opacity};
+      position: absolute;
+    }
+  `}
   & > div {
     width: 100%;
     height: 100%;
@@ -282,5 +289,15 @@ export const DirtyHash = styled.div`
   margin-top: ${({size}) => `-${size}`};
   padding-bottom: ${({size}) => size};
   display: block;
+`;
+
+//next js
+export const ImageFillContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img {
+    object-fit: cover;
+  }
 `;
 
