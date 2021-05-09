@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import {Container} from "../../globals/globalStyles";
 
-export const NavbarWrapper = styled(Container)`
+export const NavbarWrapper = styled.nav`
   width: 100%;
   height: 80px;
   background-color: black;

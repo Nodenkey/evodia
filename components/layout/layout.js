@@ -1,13 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from "../navbar/navbar";
 import Head from "next/head";
 import Footer from "../footer/footer";
+import {LayoutWrapper} from "./layoutStyles";
 
 const Layout = ({children}) => {
     const [path, setPath] = useState('');
     const [description, setDescription] = useState('');
+
+    useEffect(() => {
+        const nav = document.querySelector('nav');
+        window.onscroll = () => {
+            window.pageYOffset > 300 ? nav.classList.add('glass-back') : nav.classList.add('glass-back');
+        }
+    })
     return (
-        <>
+        <LayoutWrapper>
             <Head>
                 <title>Evodia | {path}</title>
                 <meta name="description" content={description}/>
@@ -26,7 +34,7 @@ const Layout = ({children}) => {
             <Navbar/>
             {React.cloneElement(children, {setPath, setDescription})}
             <Footer/>
-        </>
+        </LayoutWrapper>
     );
 };
 

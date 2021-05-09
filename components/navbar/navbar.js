@@ -6,7 +6,7 @@ import Logo from "../svg/logo/logo";
 
 const Navbar = () => {
     return (
-        <NavbarWrapper fluid>
+        <NavbarWrapper>
             <Container>
                 <Flex spaceBetween>
                     <Logo/>
