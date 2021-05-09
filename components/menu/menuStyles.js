@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import {palette, typeScale} from "../../utils";
-import Link from "next/link";
-import {HeaderOne, HeaderThree} from "../../globals/globalStyles";
+import {palette} from "../../utils";
+import {HeaderThree} from "../../globals/globalStyles";
 
 export const MenuWrapper = styled.div`
   height: calc(100vh - 80px);
@@ -18,6 +17,11 @@ export const MenuWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 600px) {
+    z-index: 98;
+    height: calc(100vh + 80px);
+    margin-top: -80px;
+  }
 `;
 
 export const MenuLink = styled(HeaderThree)`
