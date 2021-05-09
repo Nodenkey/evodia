@@ -14,14 +14,15 @@ export const NavbarWrapper = styled.nav`
 export const MenuButton = styled.button`
   outline: none;
   border: none;
-  width: 50px;
+  width: 37px;
   background-color: transparent;
   cursor: pointer;
   transition: 300ms ease-in-out;
+  padding: 0;
 
   div {
     height: 1px;
-    width: 100%;
+    width: 37px;
     background-color: white;
     margin: 7px 0;
     border: 1px solid white;
@@ -30,7 +31,7 @@ export const MenuButton = styled.button`
     transition: 300ms ease-in-out;
   }
   > div:nth-child(2) {
-    width: 70%;
+    width: 25px;
     margin: 7px auto;
     transition: 300ms ease-in-out;
     transform: ${({open}) => open ? 'translateX(30px)' : 'translateX(0)'};

@@ -28,6 +28,10 @@ export const Glass = styled.div`
   padding: 50px 5vw;
   color: ${palette.white};
   
+  a {
+    text-decoration: underline;  
+  }
+  
   h3 {
     margin-top: 0;
     margin-bottom: 15px;
