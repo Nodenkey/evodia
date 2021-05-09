@@ -11,7 +11,7 @@ const PerfumeCategory = () => {
                 <CategoryGrid num='2' alignFlexStart phoneGap='30px'>
                     <ImageFillContainer className='image' fixedHeight='500px' phoneHeight='300px'>
                         <Image src='/assets/images/jpg/perfume-guy.jpg' layout='fill' alt='male model'
-                               objectPosition="50% 10%"/>
+                               objectPosition="50% 10%" priority={true}/>
                     </ImageFillContainer>
                     <div>
                         <HeaderTwo>Men’s perfume category</HeaderTwo>
@@ -38,7 +38,7 @@ const PerfumeCategory = () => {
                     </div>
                     <ImageFillContainer className='image' fixedHeight='500px' phoneHeight='300px'>
                         <Image src='/assets/images/jpg/perfume-girl.jpg' layout='fill' alt='male model'
-                               objectPosition="50% 10%"/>
+                               objectPosition="50% 10%" priority={true}/>
                     </ImageFillContainer>
                 </CategoryGrid>
             </Section>

@@ -20,7 +20,7 @@ const BestSeller = () => {
                 <Grid num={['1.2fr 2fr 1.2fr']} gap='50px' phoneGap='30px' oneColumnIPad>
                     <div style={{width: '100%'}}>
                         <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
-                            <Image src='/assets/images/jpg/jaguar-red.jpg' alt='jaguar-red perfume' layout='fill'/>
+                            <Image src='/assets/images/jpg/jaguar-red.jpg' alt='jaguar-red perfume' layout='fill' priority={true}/>
                         </ImageFillContainer>
                         <HeaderFour>Jaguar Red men’s perfume</HeaderFour>
                         <Paragraph>
@@ -36,7 +36,7 @@ const BestSeller = () => {
                     <div style={{width: '100%'}}>
                         <ImageFillContainer fixedHeight='500px' phoneHeight='300px' className='image-container'>
                             <Image src='/assets/images/jpg/giorgio-armani.jpg' alt='giorgio armani perfume'
-                                   layout='fill'/>
+                                   layout='fill' priority={true}/>
                         </ImageFillContainer>
                         <HeaderFour>Giorgio Armani women’s perfume</HeaderFour>
                         <Paragraph>
@@ -52,7 +52,7 @@ const BestSeller = () => {
                     </div>
                     <div style={{width: '100%'}}>
                         <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
-                            <Image src='/assets/images/jpg/bvlgari.jpg' alt='bvlgari perfume' layout='fill'/>
+                            <Image src='/assets/images/jpg/bvlgari.jpg' alt='bvlgari perfume' layout='fill' priority={true}/>
                         </ImageFillContainer>
                         <HeaderFour>Bvlgari men’s perfume</HeaderFour>
                         <Paragraph>
