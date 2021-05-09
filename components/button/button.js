@@ -1,9 +1,9 @@
 import React from 'react';
 import {ButtonWrapper} from "./buttonStyles";
 
-const Button = ({children}) => {
+const Button = ({children, type}) => {
     return (
-        <ButtonWrapper>
+        <ButtonWrapper type={type}>
             {children}
         </ButtonWrapper>
     );

@@ -118,7 +118,20 @@ export const Grid = styled.div`
             @media only screen and (max-width: 992px) {
               grid-template-columns: 1fr;
             }
-          `}
+          `};
+  @media only screen and (max-width: 600px) {
+    ${props =>
+            props.verticalReversePhone &&
+            css`
+              > *:first-of-type {
+                order: 2;
+              }
+
+              > *:last-of-type {
+                order: 1;
+              }
+            `};
+  }
 `;
 
 //Texts
@@ -138,7 +151,9 @@ export const HeaderTwo = styled.h2`
   font-size: ${typeScale.headerThree};
   display: block;
   line-height: 120%;
-  font-weight: bold;
+  font-weight: normal;
+  font-family: Rockwell, serif;
+  letter-spacing: .05em;
   @media only screen and (min-width: 600px) {
     font-size: ${typeScale.headerTwo};
   }
@@ -149,7 +164,9 @@ export const HeaderThree = styled.h3`
   text-align: left;
   display: block;
   line-height: 140%;
-  font-weight: bold;
+  font-weight: normal;
+  font-family: Rockwell, serif;
+  letter-spacing: .05em;
   @media only screen and (min-width: 600px) {
     font-size: ${typeScale.headerThree};
   }
@@ -160,7 +177,9 @@ export const HeaderFour = styled.h4`
   text-align: left;
   display: block;
   line-height: 140%;
-  font-weight: 600;
+  font-weight: normal;
+  font-family: Rockwell, serif;
+  letter-spacing: .05em;
   @media only screen and (min-width: 600px) {
     font-size: ${typeScale.headerFour};
   }
@@ -172,6 +191,9 @@ export const HeaderFive = styled.h5`
   display: block;
   line-height: 150%;
   font-weight: 600;
+  font-weight: normal;
+  font-family: Rockwell, serif;
+  letter-spacing: .05em;
   @media only screen and (min-width: 600px) {
     font-size: ${typeScale.headerFive};
   }
@@ -294,16 +316,17 @@ export const DirtyHash = styled.div`
 //next js
 export const ImageFillContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: ${({fixedHeight}) => fixedHeight ? fixedHeight : '100%'};
   position: relative;
+
   img {
     object-fit: cover;
   }
-  
+
   @media only screen and (max-width: 600px) {
     ${({phoneHeight}) => phoneHeight && css`
       height: ${phoneHeight};
-    ` }
+    `}
   }
 `;
 

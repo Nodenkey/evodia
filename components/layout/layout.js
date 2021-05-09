@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Navbar from "../navbar/navbar";
 import Head from "next/head";
+import Footer from "../footer/footer";
 
 const Layout = ({children}) => {
     const [path, setPath] = useState('');
@@ -24,6 +25,7 @@ const Layout = ({children}) => {
             </Head>
             <Navbar/>
             {React.cloneElement(children, {setPath, setDescription})}
+            <Footer/>
         </>
     );
 };
