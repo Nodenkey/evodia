@@ -190,7 +190,6 @@ export const HeaderFive = styled.h5`
   text-align: left;
   display: block;
   line-height: 150%;
-  font-weight: 600;
   font-weight: normal;
   font-family: Rockwell, serif;
   letter-spacing: .05em;
