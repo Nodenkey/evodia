@@ -23,7 +23,17 @@ export const ButtonWrapper = styled.button`
               color: ${palette.black};
               outline: none;
             }
-          ` :
+          ` : type === 'tertiary' ? css`
+            border: 1px solid ${palette.lightRed};
+            background-color: transparent;
+            color: ${palette.white};
+
+            &:hover, &:focus {
+              background-color: ${palette.lightRed};
+              color: ${palette.white};
+              outline: none;
+            }
+          `  :
           css`
             border: 1px solid ${palette.lightRed};
             background-color: ${palette.lightRed};

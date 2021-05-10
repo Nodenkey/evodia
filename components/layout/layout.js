@@ -11,7 +11,7 @@ const Layout = ({children}) => {
     useEffect(() => {
         const nav = document.querySelector('nav');
         window.onscroll = () => {
-            window.pageYOffset > 300 ? nav.classList.add('glass-back') : nav.classList.add('glass-back');
+            window.pageYOffset > 300 ? nav.classList.add('glass-back') : nav.classList.remove('glass-back');
         }
     })
     return (
