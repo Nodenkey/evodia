@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {palette} from "../../utils";
 
 export const NavbarWrapper = styled.nav`
   width: 100%;
@@ -42,5 +43,24 @@ export const MenuButton = styled.button`
   }
   >div:nth-child(3) {
     transform: ${({open}) => open ? 'rotate(-45deg) translate(30%, -200%)' : 'rotate(0deg) translate(0, 0)'};
+  }
+`;
+
+export const ShoppingBagContainer = styled.div`
+  position: relative;
+  cursor: pointer;
+  svg {
+    z-index: 2;
+    position: relative;
+  }
+  p {
+    position: absolute;
+    z-index: 1;
+    color: ${palette.white};
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 0;
+    font-weight: 700;
   }
 `;
