@@ -10,7 +10,7 @@ import {useGlobalHooks} from "../../hooks/globalHooks";
 const Navbar = () => {
     const num = 2;
     const [openMenu, setOpenMenu] = useState(false);
-    const [openShoppingBag, setOpenShoppingBag] = useState(true);
+    const [openShoppingBag, setOpenShoppingBag] = useState(false);
     const toggleMenu = () => {
         setOpenMenu(!openMenu);
     }
