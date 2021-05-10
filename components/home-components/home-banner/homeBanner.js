@@ -22,7 +22,7 @@ const HomeBanner = () => {
                         <Button>Shop Now</Button>
                     </HomeBannerTextContainer>
                     <ImageFillContainer phoneHeight='50vh'>
-                        <Image src='/assets/images/jpg/evodia-home.jpg' layout='fill' alt='perfumes' />
+                        <Image src='/assets/images/jpg/evodia-home.jpg' layout='fill' alt='perfumes'/>
                     </ImageFillContainer>
                 </Grid>
             </Container>

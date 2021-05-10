@@ -9,6 +9,10 @@ export const ButtonWrapper = styled.button`
   font-family: Rockwell, serif;
   letter-spacing: .05em;
   transition: 300ms ease-in-out;
+  ${({fontSize}) => css`font-size: ${fontSize}`};
+  ${({squared}) => squared && css`
+    border-radius: 10px !important;
+  `};
   ${({type}) => type === 'secondary' ? css`
             border: 1px solid ${palette.black};
             background-color: ${palette.black};

@@ -8,6 +8,7 @@ import NavShoppingBag from "../shopping-bag/navShoppingBag";
 import {useGlobalHooks} from "../../hooks/globalHooks";
 
 const Navbar = () => {
+    const num = 2;
     const [openMenu, setOpenMenu] = useState(false);
     const [openShoppingBag, setOpenShoppingBag] = useState(true);
     const toggleMenu = () => {
@@ -54,11 +55,11 @@ const Navbar = () => {
                         </MenuButton>
                         <ShoppingBagContainer onClick={toggleCart} className='shopping-cart'>
                             <ShoppingBag className='shopping-cart'/>
-                            <Paragraph>0</Paragraph>
+                            <Paragraph>{num}</Paragraph>
                         </ShoppingBagContainer>
                     </Flex>
                     {
-                        openShoppingBag && <NavShoppingBag/>
+                        openShoppingBag && <NavShoppingBag num={num}/>
                     }
                 </Container>
             </NavbarWrapper>
