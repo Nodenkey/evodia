@@ -30,7 +30,7 @@ const NavShoppingBag = ({num}) => {
                                     </ShoppingItems>
                                 )
                             }
-                        <Button fontSize='1rem' squared={true} type='secondary' fluid={true}>Go to checkout</Button>
+                        <Button fontSize='1rem' squared={true} type='secondary' fluid={true} link='shopping-cart'>Go to checkout</Button>
                         </>
                 }
 

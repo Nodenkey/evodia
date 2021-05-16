@@ -329,3 +329,14 @@ export const ImageFillContainer = styled.div`
   }
 `;
 
+export const Divider = styled.div`
+  height: 2px;
+  width: 100%;
+  background-color: ${palette.lightestGrey};
+  opacity: .8;
+`;
+
+export const Greyed = styled.span`
+  color: ${palette.grey};
+`;
+
