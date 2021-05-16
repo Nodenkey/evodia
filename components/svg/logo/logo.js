@@ -1,9 +1,11 @@
 import React from 'react';
 import {LogoWrapper} from "./logoStyles";
+import Link from "next/link";
+
 
 const Logo = () => {
     return (
-        <LogoWrapper xmlns="http://www.w3.org/2000/svg" viewBox="0 0 972.55 757.71">
+        <Link href='/'><LogoWrapper xmlns="http://www.w3.org/2000/svg" viewBox="0 0 972.55 757.71">
             <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
                     <g id="logo">
@@ -23,6 +25,7 @@ const Logo = () => {
                 </g>
             </g>
         </LogoWrapper>
+        </Link>
     );
 };
 

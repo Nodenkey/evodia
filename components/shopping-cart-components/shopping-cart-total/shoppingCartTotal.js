@@ -1,6 +1,6 @@
 import React from 'react';
-import {Divider, Flex, Greyed, HeaderFive, Paragraph} from "../../../globals/globalStyles";
-import {ShoppingCartTotalWrapper} from "./shoppingCartTotalStyles";
+import {Divider, Flex, Greyed, Grid, HeaderFive, Paragraph} from "../../../globals/globalStyles";
+import {PaymentButtonContainer, PriceContainer, ShoppingCartTotalWrapper} from "./shoppingCartTotalStyles";
 import Button from "../../button/button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleLeft} from "@fortawesome/free-solid-svg-icons";
@@ -9,19 +9,16 @@ import Link from "next/link";
 const ShoppingCartTotal = () => {
     return (
         <ShoppingCartTotalWrapper>
-            <Flex spaceBetween>
-                <div/>
-                <div>
-                    <Paragraph><Greyed>Subtotal:</Greyed> <span className='left'>$318.00</span></Paragraph>
-                    <Paragraph><Greyed>Shipping:</Greyed> <span className='left'>Free</span></Paragraph>
+                <PriceContainer>
+                    <Grid num='2' phoneNum='2' justifyFlexStart gap='50px'><Paragraph><Greyed>Subtotal:</Greyed></Paragraph> <Paragraph>$318.00</Paragraph></Grid>
+                    <Grid num='2' phoneNum='2' justifyFlexStart gap='50px'><Paragraph><Greyed>Shipping:</Greyed></Paragraph> <Paragraph>Free</Paragraph></Grid>
                     <Divider/>
-                    <HeaderFive>Total: <span className='left'>$318.00</span></HeaderFive>
-                </div>
-            </Flex>
-            <Flex spaceBetween style={{marginTop: 30}}>
+                   <Grid num='2' phoneNum='2' justifyFlexStart gap='50px'><Paragraph className='total'>Total: </Paragraph><Paragraph className='total'>$318.00</Paragraph></Grid>
+                </PriceContainer>
+            <PaymentButtonContainer spaceBetween>
                <Link href='/shopping'><Flex style={{cursor: 'pointer'}}><FontAwesomeIcon icon={faAngleLeft}/><HeaderFive style={{margin: 0}}>Continue shopping</HeaderFive></Flex></Link>
-                <Button type='secondary' squared>Make payment</Button>
-            </Flex>
+                <div><Button type='secondary' squared fluid>Make payment</Button></div>
+            </PaymentButtonContainer>
         </ShoppingCartTotalWrapper>
     );
 };

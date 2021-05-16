@@ -10,6 +10,9 @@ export const NavbarWrapper = styled.nav`
   top: 0;
   left: 0;
   z-index: 99;
+  svg {
+    cursor: pointer;
+  }
 `;
 
 export const MenuButton = styled.button`
@@ -40,9 +43,11 @@ export const MenuButton = styled.button`
   }
   >div:nth-child(1) {
     transform: ${({open}) => open ? 'rotate(45deg) translate(25%, 25%)' : 'rotate(0deg) translate(0, 0)'};
+    margin-left: ${({open}) => open ? '-10px' : '0'};;
   }
   >div:nth-child(3) {
     transform: ${({open}) => open ? 'rotate(-45deg) translate(30%, -200%)' : 'rotate(0deg) translate(0, 0)'};
+    margin-left: ${({open}) => open ? '-10px' : '0'};;
   }
 `;
 
