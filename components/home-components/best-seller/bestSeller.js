@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {connect} from "react-redux";
 import {BestSellerWrapper} from "./bestSellerStyles";
 import {
     Container,
@@ -11,64 +12,58 @@ import {
 } from "../../../globals/globalStyles";
 import Image from "next/image";
 import Button from "../../button/button";
+import {createStructuredSelector} from "reselect";
+import {
+    selectIsLoadingSpecialPerfumes,
+    selectSpecialPerfumes,
+    selectSpecialPerfumesError
+} from "../../../lib/redux/perfume/perfume.selectors";
+import {getSpecialPerfumesStart} from "../../../lib/redux/perfume/perfume.actions";
 
-const BestSeller = () => {
+const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfumes, specialPerfumesError}) => {
+
+    useEffect(() => {
+        getSpecialPerfumes();
+    }, [getSpecialPerfumes]);
+
     return (
         <BestSellerWrapper>
             <Container>
                 <HeaderTwo>Best seller</HeaderTwo>
                 <Grid num={['1.2fr 2fr 1.2fr']} gap='50px' phoneGap='30px' oneColumnIPad>
-                    <div style={{width: '100%'}}>
-                        <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
-                            <Image src='https://firebasestorage.googleapis.com/v0/b/evodia-443cc.appspot.com/o/Jo%20Malone.jpg?alt=media&token=613b5831-fbd3-4f4b-95bf-4fa4c595296d' layout='fill' />
-                        </ImageFillContainer>
-                        <HeaderFour>Jaguar Red men’s perfume</HeaderFour>
-                        <Paragraph>
-                            Created with a perfect blend of spicy, fruity and floral notes.
-                        </Paragraph>
-                        <Flex spaceBetween className='buy'>
-                            <Paragraph>
-                                $85.00
-                            </Paragraph>
-                            <Button type='secondary'>Add to cart</Button>
-                        </Flex>
-                    </div>
-                    <div style={{width: '100%'}}>
-                        <ImageFillContainer fixedHeight='500px' phoneHeight='300px' className='image-container'>
-                            <Image src='/assets/images/jpg/giorgio-armani.jpg' alt='giorgio armani perfume'
-                                   layout='fill' />
-                        </ImageFillContainer>
-                        <HeaderFour>Giorgio Armani women’s perfume</HeaderFour>
-                        <Paragraph>
-                            The scent for the modern seducer, is a warm and sensual fragrance, featuring the addictive
-                            and intoxicating tonka bean.
-                        </Paragraph>
-                        <Flex spaceBetween className='buy'>
-                            <Paragraph>
-                                $ 186.99
-                            </Paragraph>
-                            <Button type='secondary'>Add to cart</Button>
-                        </Flex>
-                    </div>
-                    <div style={{width: '100%'}}>
-                        <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
-                            <Image src='/assets/images/jpg/bvlgari.jpg' alt='bvlgari perfume' layout='fill' />
-                        </ImageFillContainer>
-                        <HeaderFour>Bvlgari men’s perfume</HeaderFour>
-                        <Paragraph>
-                            Exquisite and unmistakable fragrances and perfumes.
-                        </Paragraph>
-                        <Flex spaceBetween className='buy'>
-                            <Paragraph>
-                                $ 115.00
-                            </Paragraph>
-                            <Button type='secondary'>Add to cart</Button>
-                        </Flex>
-                    </div>
+                    {
+                        specialPerfumes?.map(perfume => (
+                            <div style={{width: '100%'}}>
+                                <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
+                                    <Image src={perfume?.image} alt={perfume?.name} layout='fill' />
+                                </ImageFillContainer>
+                                <HeaderFour>{perfume?.name} Perfume</HeaderFour>
+                                <Paragraph>
+                                    {perfume?.description}
+                                </Paragraph>
+                                <Flex spaceBetween className='buy'>
+                                    <Paragraph>
+                                        ${perfume?.price.toFixed(2)}
+                                    </Paragraph>
+                                    <Button type='secondary'>Add to cart</Button>
+                                </Flex>
+                            </div>
+                        ))
+                    }
                 </Grid>
             </Container>
         </BestSellerWrapper>
     );
 };
 
-export default BestSeller;
+const mapStateToProps = createStructuredSelector({
+    specialPerfumes: selectSpecialPerfumes,
+    isLoadingSpecialPerfumes: selectIsLoadingSpecialPerfumes,
+    specialPerfumesError: selectSpecialPerfumesError
+});
+
+const mapDispatchToProps = dispatch => ({
+    getSpecialPerfumes: () => dispatch(getSpecialPerfumesStart())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BestSeller);
