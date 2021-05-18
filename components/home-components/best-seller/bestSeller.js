@@ -19,8 +19,9 @@ import {
     selectSpecialPerfumesError
 } from "../../../lib/redux/perfume/perfume.selectors";
 import {getSpecialPerfumesStart} from "../../../lib/redux/perfume/perfume.actions";
+import {addItem} from "../../../lib/redux/cart/cart.actions";
 
-const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfumes, specialPerfumesError}) => {
+const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfumes, specialPerfumesError, addItem}) => {
 
     useEffect(() => {
         getSpecialPerfumes();
@@ -33,7 +34,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                 <Grid num={['1.2fr 2fr 1.2fr']} gap='50px' phoneGap='30px' oneColumnIPad>
                     {
                         specialPerfumes?.map(perfume => (
-                            <div style={{width: '100%'}}>
+                            <div style={{width: '100%'}} key={perfume.id}>
                                 <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
                                     <Image src={perfume?.image} alt={perfume?.name} layout='fill' />
                                 </ImageFillContainer>
@@ -45,7 +46,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                                     <Paragraph>
                                         ${perfume?.price.toFixed(2)}
                                     </Paragraph>
-                                    <Button type='secondary'>Add to cart</Button>
+                                    <Button onClick={() => addItem(perfume)} type='secondary'>Add to cart</Button>
                                 </Flex>
                             </div>
                         ))
@@ -63,7 +64,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getSpecialPerfumes: () => dispatch(getSpecialPerfumesStart())
+    getSpecialPerfumes: () => dispatch(getSpecialPerfumesStart()),
+    addItem: (item) => dispatch(addItem(item))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BestSeller);

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {connect} from "react-redux";
 import {MenuButton, NavbarWrapper, ShoppingBagContainer} from "./navbarStyles";
 import {Container, Flex, Paragraph} from "../../globals/globalStyles";
 import ShoppingBag from "../svg/shopping-bag/shoppingBag";
@@ -6,9 +7,11 @@ import Logo from "../svg/logo/logo";
 import Menu from "../menu/menu";
 import NavShoppingBag from "../shopping-bag/navShoppingBag";
 import {useGlobalHooks} from "../../hooks/globalHooks";
+import {createStructuredSelector} from "reselect";
+import {selectCartItems} from "../../lib/redux/cart/cart.selectors";
 
-const Navbar = () => {
-    const num = 2;
+const Navbar = ({cartItems}) => {
+    const num = cartItems.length;
     const [openMenu, setOpenMenu] = useState(false);
     const [openShoppingBag, setOpenShoppingBag] = useState(false);
     const toggleMenu = () => {
@@ -70,4 +73,8 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+const mapStateToProps = createStructuredSelector({
+    cartItems: selectCartItems
+});
+
+export default connect(mapStateToProps)(Navbar);

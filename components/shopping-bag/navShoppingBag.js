@@ -1,13 +1,15 @@
 import React from 'react';
+import {connect} from "react-redux";
 import {NavShoppingBagWrapper, ShoppingItems, ShoppingItemTextContainer} from "./navShoppingBagStyles";
 import {HeaderFive, Paragraph} from "../../globals/globalStyles";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
-import {CartPerfumes} from "../../utils/staticData";
 import Image from "next/image";
 import Button from "../button/button";
+import {createStructuredSelector} from "reselect";
+import {selectCartItems} from "../../lib/redux/cart/cart.selectors";
 
-const NavShoppingBag = ({num}) => {
+const NavShoppingBag = ({num, cartItems}) => {
         return (
             <NavShoppingBagWrapper vertical justifyFlexStart>
                 {
@@ -17,14 +19,14 @@ const NavShoppingBag = ({num}) => {
                         </> :
                         <>
                             {
-                                CartPerfumes.map((perfume, index) =>
-                                    <ShoppingItems key={index} justifyFlexStart>
+                                cartItems.map((perfume) =>
+                                    <ShoppingItems key={perfume.id} justifyFlexStart>
                                         <Image src={perfume.image} alt={perfume.name} width={140} height={120}
                                                objectFit='cover'/>
                                         <ShoppingItemTextContainer>
                                             <HeaderFive>{perfume.name}</HeaderFive>
                                             <Paragraph>
-                                                {perfume.numberSelected} x ${perfume.price}
+                                                {perfume.quantity} x ${perfume.price}
                                             </Paragraph>
                                         </ShoppingItemTextContainer>
                                     </ShoppingItems>
@@ -39,4 +41,8 @@ const NavShoppingBag = ({num}) => {
     }
 ;
 
-export default NavShoppingBag;
+const mapStateToProps = createStructuredSelector({
+    cartItems: selectCartItems
+});
+
+export default connect(mapStateToProps)(NavShoppingBag);
