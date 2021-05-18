@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {ShoppingWrapper} from "../components/shopping/shopppingStyles";
-import ShoppingSideBar from "../components/shopping/shopping-side-bar/shoppingSideBar";
-import ShoppingMain from "../components/shopping/shopping-main/shoppingMain";
+import {ShoppingWrapper} from "../../components/shopping/shopppingStyles";
+import ShoppingSideBar from "../../components/shopping/shopping-side-bar/shoppingSideBar";
+import ShoppingMain from "../../components/shopping/shopping-main/shoppingMain";
 
-const Shopping = () => {
+const Collection = () => {
     const [openShopMenu, setOpenShopMenu] = useState(false);
     const toggleMenu = () => {
         setOpenShopMenu(!openShopMenu);
@@ -16,4 +16,4 @@ const Shopping = () => {
     );
 };
 
-export default Shopping;
+export default Collection;

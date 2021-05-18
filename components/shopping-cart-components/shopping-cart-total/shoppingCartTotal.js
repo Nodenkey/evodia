@@ -19,7 +19,7 @@ const ShoppingCartTotal = ({total}) => {
                    <Grid num='2' phoneNum='2' justifyFlexStart gap='50px'><Paragraph className='total'>Total: </Paragraph><Paragraph className='total'>${total.toFixed(2)}</Paragraph></Grid>
                 </PriceContainer>
             <PaymentButtonContainer spaceBetween>
-               <Link href='/shopping'><Flex style={{cursor: 'pointer'}}><FontAwesomeIcon icon={faAngleLeft}/><HeaderFive style={{margin: 0}}>Continue shopping</HeaderFive></Flex></Link>
+               <Link href='/collection/all'><Flex style={{cursor: 'pointer'}}><FontAwesomeIcon icon={faAngleLeft}/><HeaderFive style={{margin: 0}}>Continue shopping</HeaderFive></Flex></Link>
                 <div><Button type='secondary' squared fluid>Make payment</Button></div>
             </PaymentButtonContainer>
         </ShoppingCartTotalWrapper>
