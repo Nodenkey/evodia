@@ -20,7 +20,7 @@ const BestSeller = () => {
                 <Grid num={['1.2fr 2fr 1.2fr']} gap='50px' phoneGap='30px' oneColumnIPad>
                     <div style={{width: '100%'}}>
                         <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
-                            <Image src='/assets/images/jpg/jaguar-red.jpg' alt='jaguar-red perfume' layout='fill' />
+                            <Image src='https://firebasestorage.googleapis.com/v0/b/evodia-443cc.appspot.com/o/Jo%20Malone.jpg?alt=media&token=613b5831-fbd3-4f4b-95bf-4fa4c595296d' layout='fill' />
                         </ImageFillContainer>
                         <HeaderFour>Jaguar Red men’s perfume</HeaderFour>
                         <Paragraph>
