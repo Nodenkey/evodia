@@ -1,5 +1,5 @@
 import React from 'react';
-import PerfumeDetailsComponent from "../components/perfume-details/perfumeDetailsComponent";
+import PerfumeDetailsComponent from "../../components/perfume-details/perfumeDetailsComponent";
 
 const PerfumeDetails = () => {
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import {useRouter} from "next/router";
 import {connect} from "react-redux";
 import {ShoppingCardWrapper} from "./shoppingCardStyles";
 import {Flex, HeaderFive, HeaderFour, Small} from "../../../globals/globalStyles";
@@ -7,8 +8,10 @@ import Button from "../../button/button";
 import {addItem} from "../../../lib/redux/cart/cart.actions";
 
 const ShoppingCard = ({perfume, addItem}) => {
+    const router = useRouter();
+
     return (
-        <ShoppingCardWrapper>
+        <ShoppingCardWrapper onClick={() => router.push(`/perfume-details/${perfume.name}`)}>
             <Small>{perfume.scent}</Small>
             <HeaderFour>{perfume.name}</HeaderFour>
             <Image src={perfume.image} alt={perfume.name} width={300} height={250}/>
