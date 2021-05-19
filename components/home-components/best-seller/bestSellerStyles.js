@@ -21,7 +21,7 @@ export const BestSellerWrapper = styled(Section)`
   }
   @media only screen and (min-width: 600px) {
     >div>div>div:nth-child(2)>div:first-child {
-      height: 500px;
+      height: 400px;
     }
   }
   .buy {
