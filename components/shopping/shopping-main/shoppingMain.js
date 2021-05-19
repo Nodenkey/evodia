@@ -18,6 +18,8 @@ import {
     selectCollectionItems
 } from "../../../lib/redux/collection/collection.selectors";
 import {DesktopGridList} from "../../shopping-cart-components/shoppingCartStyles";
+import {selectIsLoadingResults, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
+import {getResultsStart} from "../../../lib/redux/filter/filter.actions";
 
 const ShoppingMain = (
     {
@@ -30,7 +32,10 @@ const ShoppingMain = (
         isLoadingCollection,
         collectionError,
         getAllPerfumes,
-        getCollection
+        getCollection,
+        searchResults,
+        isLoadingResults,
+        resultsMessage
     }
 ) => {
     const router = useRouter();
@@ -42,9 +47,9 @@ const ShoppingMain = (
         }
     }, [collection, getAllPerfumes, getCollection]);
 
-    const perfumes = collection === 'all' ? allPerfumes : collectionItems?.perfumes;
+    const perfumes = searchResults.length >= 0 && resultsMessage === "done" ? searchResults : collection === 'all' ? allPerfumes : collectionItems?.perfumes;
 
-    if (isLoadingAllPerfumes || isLoadingCollection) {
+    if (isLoadingAllPerfumes || isLoadingCollection || isLoadingResults) {
         return <h1>Loading</h1>
     }
 
@@ -59,13 +64,21 @@ const ShoppingMain = (
                 <div/>
                 <div/>
             </ShoppingMenu>
-            <DesktopGridList num={['1fr 1fr 1fr']} justifyFlexStart className='item-row'>
-                {
-                    perfumes?.map(perfume => (
-                        <ShoppingCard key={perfume.id} perfume={perfume}/>
-                    ))
-                }
-            </DesktopGridList>
+            {
+                perfumes?.length > 0
+                    ? (
+                        <DesktopGridList num={['1fr 1fr 1fr']} justifyFlexStart className='item-row'>
+                            {
+                                perfumes?.map(perfume => (
+                                    <ShoppingCard key={perfume.id} perfume={perfume}/>
+                                ))
+                            }
+                        </DesktopGridList>
+                    )
+                    : (
+                        <h1 style={{color: 'white'}}>No results found</h1>
+                    )
+            }
         </MainShoppingWrapper>
     );
 };
@@ -76,12 +89,15 @@ const mapStateToProps = createStructuredSelector({
     allPerfumesError: selectAllPerfumesError,
     collectionItems: selectCollectionItems,
     isLoadingCollection: selectCollectionIsLoading,
-    collectionError: selectCollectionError
+    collectionError: selectCollectionError,
+    searchResults: selectResults,
+    isLoadingResults: selectIsLoadingResults,
+    resultsMessage: selectResultsMessage
 });
 
 const mapDispatchToProps = dispatch => ({
     getCollection: (collectionName) => dispatch(getCollectionStart(collectionName)),
-    getAllPerfumes: () => dispatch(getAllPerfumesStart())
+    getAllPerfumes: () => dispatch(getAllPerfumesStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingMain);
