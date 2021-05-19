@@ -12,6 +12,11 @@ export const BestSellerWrapper = styled(Section)`
     padding: 15px 20px;
   }
   .image-container {
+    @media only screen and (min-width: 600px) {
+      &:nth-child(2) {
+        height: 500px;
+      }
+    }
     @media only screen and (max-width: 900px) {
       height: 500px;
     }
