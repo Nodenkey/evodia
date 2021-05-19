@@ -14,7 +14,7 @@ export const BestSellerWrapper = styled(Section)`
   .image-container {
     @media only screen and (min-width: 600px) {
       &:nth-child(2) {
-        height: 500px;
+        height: 500px !important;
       }
     }
     @media only screen and (max-width: 900px) {
