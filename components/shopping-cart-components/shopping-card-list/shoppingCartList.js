@@ -10,6 +10,7 @@ import {addItem, clearItemFromCart, removeItem} from "../../../lib/redux/cart/ca
 const ShoppingCartList = ({removeItem, clearItem, cartItems, addItem}) => {
     return cartItems.map((perfume) =>{
         const perfumeCollection = perfume.perfumeCollection.id ?? perfume.perfumeCollection;
+        const perfumeTotal = perfume.quantity * perfume.price;
         return (
             <div key={perfume.id}>
                 <DesktopGridList num={['2fr 1fr 1fr .2fr']} justifyFlexStart className='item-row'>
@@ -25,7 +26,7 @@ const ShoppingCartList = ({removeItem, clearItem, cartItems, addItem}) => {
                         <Paragraph>{perfume.quantity}</Paragraph>
                         <img onClick={() => addItem(perfume)} src='/assets/images/SVG/plus.svg' alt='plus-sign'/>
                     </AddMinus>
-                    <Paragraph style={{fontWeight: 600}}>${perfume.price.toFixed(2)}</Paragraph>
+                    <Paragraph style={{fontWeight: 600}}>${perfumeTotal.toFixed(2)}</Paragraph>
                     <img onClick={() => clearItem(perfume)} src="/assets/images/SVG/close.svg" alt="close" style={{cursor: 'pointer'}}/>
                 </DesktopGridList>
                 <PhoneListWrapper>
@@ -40,7 +41,7 @@ const ShoppingCartList = ({removeItem, clearItem, cartItems, addItem}) => {
                             <Paragraph>{perfume.quantity}</Paragraph>
                             <img onClick={() => addItem(perfume)} src='/assets/images/SVG/plus.svg' alt='plus-sign'/>
                         </AddMinus>
-                        <Paragraph style={{fontWeight: 600}}>${perfume.price.toFixed(2)}</Paragraph>
+                        <Paragraph style={{fontWeight: 600}}>${perfumeTotal.toFixed(2)}</Paragraph>
                     </PhoneListContainer>
                     <img onClick={() => clearItem(perfume)} src="/assets/images/SVG/close.svg" alt="close" style={{cursor: 'pointer'}} id='list-close'/>
                 </PhoneListWrapper>
