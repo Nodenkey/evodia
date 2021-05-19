@@ -20,8 +20,8 @@ export const BestSellerWrapper = styled(Section)`
     }
   }
   @media only screen and (min-width: 600px) {
-    .image-container:nth-child(2) {
-      height: 500px !important;
+    >div>div>div:first-child >div:nth-child(2) {
+      height: 500px;
     }
   }
   .buy {
