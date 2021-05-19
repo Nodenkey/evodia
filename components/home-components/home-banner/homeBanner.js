@@ -19,7 +19,7 @@ const HomeBanner = () => {
                             Discover the latest and most elegant scents
                             right here in the Evodia Collection
                         </Paragraph>
-                        <Button link='/shopping'>Shop Now</Button>
+                        <Button link='/collection/all'>Shop Now</Button>
                     </HomeBannerTextContainer>
                     <ImageFillContainer phoneHeight='50vh'>
                         <Image src='/assets/images/jpg/evodia-home.jpg' layout='fill' alt='perfumes'/>

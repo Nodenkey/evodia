@@ -21,7 +21,7 @@ const PerfumeCategory = () => {
                             you.
                             Online orders come with free delivery.
                         </Paragraph>
-                        <Button type='secondary' link='/shopping'>Shop Now</Button>
+                        <Button type='secondary' link='/collection/all'>Shop Now</Button>
                     </div>
                 </CategoryGrid>
             </Section>
@@ -34,7 +34,7 @@ const PerfumeCategory = () => {
                             sensational scents include citrus, floral, green, oceanic, oriental, spicy and woody
                             flavours. Our fragrances ensure you are always fully dressed for any occasion.
                         </Paragraph>
-                        <Button type='secondary' link='/shopping'>Shop Now</Button>
+                        <Button type='secondary' link='/collection/all'>Shop Now</Button>
                     </div>
                     <ImageFillContainer className='image' fixedHeight='500px' phoneHeight='300px'>
                         <Image src='/assets/images/jpg/perfume-girl.jpg' layout='fill' alt='male model'

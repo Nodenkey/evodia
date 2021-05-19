@@ -19,6 +19,11 @@ export const BestSellerWrapper = styled(Section)`
       height: 300px;
     }
   }
+  @media only screen and (min-width: 600px) {
+    .image-container:nth-child(2) {
+      height: 500px !important;
+    }
+  }
   .buy {
     p {
       font-family: Rockwell, serif;
