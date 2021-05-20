@@ -11,7 +11,7 @@ import {selectCartItems} from "../../lib/redux/cart/cart.selectors";
 
 const NavShoppingBag = ({num, cartItems}) => {
         return (
-            <NavShoppingBagWrapper vertical justifyFlexStart>
+            <NavShoppingBagWrapper vertical>
                 {
                     num === 0 ? <>
                             <FontAwesomeIcon icon={faShoppingCart}/>
