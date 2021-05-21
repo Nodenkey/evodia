@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   html, body {
     padding: 0;
     margin: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   html {
@@ -29,7 +29,6 @@ export const GlobalStyle = createGlobalStyle`
 
   *, :after, :before {
     box-sizing: border-box;
-    font-family: Montserrat, sans-serif;
   }
 
   .styled-list li {

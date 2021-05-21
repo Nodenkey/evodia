@@ -200,7 +200,6 @@ export const HeaderFive = styled.h5`
 
 export const Paragraph = styled.p`
   font-size: ${typeScale.paragraph};
-  font-family: Montserrat, sans-serif;
   display: block;
   line-height: 180%;
   ${props =>
@@ -214,7 +213,6 @@ export const Small = styled.small`
   font-size: ${typeScale.small};
   display: block;
   line-height: 150%;
-  font-family: Montserrat, sans-serif;
 `;
 
 export const Overlay = styled.div`
