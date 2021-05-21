@@ -23,10 +23,6 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-  body {
-    overflow-x: hidden;
-  }
-
   *, :after, :before {
     box-sizing: border-box;
   }

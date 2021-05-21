@@ -4,9 +4,11 @@ import {Flex} from "../../../globals/globalStyles";
 
 export const ShoppingSideBarWrapper = styled.div`
   min-height: calc(100vh - 200px);
+  height: 400vh;
   width: 100%;
   background-color: ${palette.darkGrey};
   color: ${palette.white};
+  padding-bottom: 200px;
   >div:first-child {
     padding: 30px 3vw;
   }
@@ -33,8 +35,12 @@ export const GoUp = styled(Flex)`
   height: 50px;
   border-radius: 50%;
   background-color: white;
-  margin: 100px auto 0;
   cursor: pointer;
+  position: sticky;
+  top: calc(100vh - 100px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   svg {
     color: ${palette.lightRed};
     font-size: 2.5rem;
