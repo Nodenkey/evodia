@@ -25,11 +25,11 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     overflow-x: hidden;
-    font-family: Montserrat, sans-serif;
   }
 
   *, :after, :before {
     box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
   }
 
   .styled-list li {
