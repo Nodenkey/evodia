@@ -8,15 +8,13 @@ export const MainShoppingWrapper = styled(Grid)`
       margin-bottom: 30px;
       z-index: 1;
       position: fixed;
-      background-color: black;
       width: 100vw;
       top: 80px;
       left: 0;
       padding: 10px 20px;
-    } 
+    }
+    .item-list {
+      margin-top: 30px;
+    }
   }
-`;
-
-export const CardList = styled.div`
-  margin-top: 40px;
 `;

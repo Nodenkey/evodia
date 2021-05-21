@@ -4,11 +4,11 @@ import {Flex} from "../../../globals/globalStyles";
 
 export const ShoppingSideBarWrapper = styled.div`
   min-height: calc(100vh - 200px);
-  height: 400vh;
+  height: 100%;
   width: 100%;
   background-color: ${palette.darkGrey};
   color: ${palette.white};
-  padding-bottom: 200px;
+  padding-bottom: 50px;
   >div:first-child {
     padding: 30px 3vw;
   }
@@ -17,7 +17,6 @@ export const ShoppingSideBarWrapper = styled.div`
     top: 80px;
     left: 0;
     z-index: 2;
-    height: calc(100vh - 80px);
     overflow-y: auto;
     background: linear-gradient(to right bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .7));
     transition: 300ms ease-in-out;

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import { useRouter } from 'next/router'
-import {CardList, MainShoppingWrapper} from "./shoppingMainStyles";
+import {MainShoppingWrapper} from "./shoppingMainStyles";
 import ShoppingCard from "../shopping-card/shoppingCard";
 import {ShoppingMenu} from "../shopping-side-bar/shoppingSideBarStyles";
 import {createStructuredSelector} from "reselect";
@@ -17,9 +17,10 @@ import {
     selectCollectionIsLoading,
     selectCollectionItems
 } from "../../../lib/redux/collection/collection.selectors";
-import {DesktopGridList} from "../../shopping-cart-components/shoppingCartStyles";
 import {selectIsLoadingResults, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
 import {getResultsStart} from "../../../lib/redux/filter/filter.actions";
+import {Grid, Paragraph} from "../../../globals/globalStyles";
+import Loader from "../../loader/loader";
 
 const ShoppingMain = (
     {
@@ -50,7 +51,7 @@ const ShoppingMain = (
     const perfumes = searchResults.length >= 0 && resultsMessage === "done" ? searchResults : collection === 'all' ? allPerfumes : collectionItems?.perfumes;
 
     if (isLoadingAllPerfumes || isLoadingCollection || isLoadingResults) {
-        return <h1>Loading</h1>
+        return <Loader width='100%' height='calc(100vh - 80px)'/>
     }
 
     if (allPerfumesError || collectionError) {
@@ -59,7 +60,7 @@ const ShoppingMain = (
 
     return (
         <MainShoppingWrapper justifyFlexStart>
-            <ShoppingMenu id='shopping-menu-main' onClick={toggleMenu}>
+            <ShoppingMenu id='shopping-menu-main' className='glass-back' onClick={toggleMenu}>
                 <div/>
                 <div/>
                 <div/>
@@ -67,16 +68,16 @@ const ShoppingMain = (
             {
                 perfumes?.length > 0
                     ? (
-                        <DesktopGridList num={['1fr 1fr 1fr']} justifyFlexStart className='item-row'>
+                        <Grid num={['repeat(auto-fill, minmax(300px, 1fr))']} gap='50px' phoneGap='30px' justifyFlexStart className='item-list'>
                             {
                                 perfumes?.map(perfume => (
                                     <ShoppingCard key={perfume.id} perfume={perfume}/>
                                 ))
                             }
-                        </DesktopGridList>
+                        </Grid>
                     )
                     : (
-                        <h1 style={{color: 'white'}}>No results found</h1>
+                        <Paragraph style={{color: 'white', marginTop: 50}}>No results found</Paragraph>
                     )
             }
         </MainShoppingWrapper>
