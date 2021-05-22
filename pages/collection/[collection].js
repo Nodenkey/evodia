@@ -12,6 +12,11 @@ const Collection = ({setPath, setDescription}) => {
         setPath('perfume-collection');
         setDescription('Evodia presents different range of perfumes for all sexes');
     })
+    useEffect(() => {
+        console.log('clear checks');
+        const inputList = document.querySelectorAll('input');
+        inputList.forEach(input => input.value = '');
+    })
     return (
         <ShoppingWrapper num={['1fr 3.5fr']} alignFlexStart gap='50px'>
             <ShoppingSideBar open={openShopMenu} toggleMenu={toggleMenu}/>

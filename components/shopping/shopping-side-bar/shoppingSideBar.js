@@ -11,7 +11,6 @@ import {createStructuredSelector} from "reselect";
 import {selectAllPerfumes} from "../../../lib/redux/perfume/perfume.selectors";
 import {selectFilters, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
 import {selectCollectionItems} from "../../../lib/redux/collection/collection.selectors";
-import Link from "next/link";
 
 const ShoppingSideBar = ({
                              open,
@@ -48,6 +47,12 @@ const ShoppingSideBar = ({
     const closeSideBar = e => {
         e.target.classList.contains('shopping-wrapper') && toggleMenu();
     }
+
+    const scrollToTop = () => {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
     return (
         <ShoppingSideBarWrapper open={open} className='shopping-wrapper' onClick={closeSideBar}>
             <div>
@@ -91,11 +96,9 @@ const ShoppingSideBar = ({
                 <CheckBox label='Oriental' id="oriental" name="oriental" value="oriental" category="scent"
                           onChange={handleCheckBox}/>
             </div>
-            <Link href='/collection/all'>
-                <GoUp>
-                    <FontAwesomeIcon icon={faAngleUp}/>
-                </GoUp>
-            </Link>
+            <GoUp onClick={scrollToTop}>
+                <FontAwesomeIcon icon={faAngleUp}/>
+            </GoUp>
         </ShoppingSideBarWrapper>
     );
 };
