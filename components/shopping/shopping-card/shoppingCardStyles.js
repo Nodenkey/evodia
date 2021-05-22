@@ -30,8 +30,4 @@ export const ShoppingCardWrapper = styled.div`
       padding: 15px 20px;
     }
   }
-  #cart-button {
-    position: relative;
-    z-index: 2;
-  }
 `;
