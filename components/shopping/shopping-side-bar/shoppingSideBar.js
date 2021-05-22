@@ -12,7 +12,6 @@ import {selectAllPerfumes} from "../../../lib/redux/perfume/perfume.selectors";
 import {selectFilters, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
 import {selectCollectionItems} from "../../../lib/redux/collection/collection.selectors";
 import Link from "next/link";
-import {getAllPerfumesStart} from "../../../lib/redux/perfume/perfume.actions";
 
 const ShoppingSideBar = (
     {
@@ -25,8 +24,7 @@ const ShoppingSideBar = (
         setFilters,
         filters,
         allPerfumes,
-        clearFilters,
-        getAllPerfumes
+        clearFilters
     }
 ) => {
     const router = useRouter();
@@ -43,8 +41,6 @@ const ShoppingSideBar = (
     useEffect(() => {
         if (collection && collection !== 'all') {
             setFilters('sex', collection);
-        } else {
-            getAllPerfumes();
         }
 
         return () => {
@@ -123,7 +119,6 @@ const mapDispatchToProps = dispatch => ({
     search: (filters) => dispatch(getResultsStart(filters)),
     setFilters: (category, value) => dispatch(setFilters(category, value)),
     clearFilters: () => dispatch(clearFilters()),
-    getAllPerfumes: () => dispatch(getAllPerfumesStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingSideBar);

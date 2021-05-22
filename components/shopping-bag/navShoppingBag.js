@@ -26,7 +26,7 @@ const NavShoppingBag = ({num, cartItems}) => {
                                         <ShoppingItemTextContainer>
                                             <HeaderFive>{perfume.name}</HeaderFive>
                                             <Paragraph>
-                                                {perfume.quantity} x ${perfume.price}
+                                                {perfume.quantity} x GHS {perfume.price}
                                             </Paragraph>
                                         </ShoppingItemTextContainer>
                                     </ShoppingItems>

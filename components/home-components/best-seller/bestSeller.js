@@ -44,7 +44,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                                 </Paragraph>
                                 <Flex spaceBetween className='buy'>
                                     <Paragraph>
-                                        ${perfume?.price.toFixed(2)}
+                                        GHS {perfume?.price.toFixed(2)}
                                     </Paragraph>
                                     <Button onClick={() => addItem(perfume)} type='secondary'>Add to cart</Button>
                                 </Flex>
