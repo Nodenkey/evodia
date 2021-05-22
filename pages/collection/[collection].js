@@ -13,9 +13,8 @@ const Collection = ({setPath, setDescription}) => {
         setDescription('Evodia presents different range of perfumes for all sexes');
     })
     useEffect(() => {
-        console.log('clear checks');
         const inputList = document.querySelectorAll('input');
-        inputList.forEach(input => input.value = '');
+        inputList.forEach(input => input.checked = false);
     })
     return (
         <ShoppingWrapper num={['1fr 3.5fr']} alignFlexStart gap='50px'>
