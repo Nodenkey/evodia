@@ -18,7 +18,7 @@ import {
     selectCollectionItems
 } from "../../../lib/redux/collection/collection.selectors";
 import {selectIsLoadingResults, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
-import {getResultsStart} from "../../../lib/redux/filter/filter.actions";
+import {clearFilters, getResultsStart} from "../../../lib/redux/filter/filter.actions";
 import {Grid, Paragraph} from "../../../globals/globalStyles";
 import Loader from "../../loader/loader";
 
@@ -36,7 +36,7 @@ const ShoppingMain = (
         getCollection,
         searchResults,
         isLoadingResults,
-        resultsMessage
+        resultsMessage,
     }
 ) => {
     const router = useRouter();
@@ -44,9 +44,9 @@ const ShoppingMain = (
 
     useEffect(() => {
         if (collection) {
-            collection === 'all' ? getAllPerfumes() : getCollection(collection);
+            collection === 'all' && getAllPerfumes();
         }
-    }, [collection, getAllPerfumes, getCollection]);
+    }, [getAllPerfumes, collection]);
 
     const perfumes = searchResults.length >= 0 && resultsMessage === "done" ? searchResults : collection === 'all' ? allPerfumes : collectionItems?.perfumes;
 
@@ -99,6 +99,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
     getCollection: (collectionName) => dispatch(getCollectionStart(collectionName)),
     getAllPerfumes: () => dispatch(getAllPerfumesStart()),
+    clearFilters: () => dispatch(clearFilters())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingMain);
