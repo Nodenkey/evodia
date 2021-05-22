@@ -6,23 +6,26 @@ import {HeaderFour} from "../../../globals/globalStyles";
 import CheckBox from "../../check-box/checkBox";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleUp} from "@fortawesome/free-solid-svg-icons";
-import {getResultsStart, setFilters} from "../../../lib/redux/filter/filter.actions";
+import {clearFilters, getResultsStart, setFilters} from "../../../lib/redux/filter/filter.actions";
 import {createStructuredSelector} from "reselect";
 import {selectAllPerfumes} from "../../../lib/redux/perfume/perfume.selectors";
 import {selectFilters, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
 import {selectCollectionItems} from "../../../lib/redux/collection/collection.selectors";
 
-const ShoppingSideBar = ({
-                             open,
-                             toggleMenu,
-                             search,
-                             searchResults,
-                             resultsMessage,
-                             collectionItems,
-                             setFilters,
-                             filters,
-                             allPerfumes
-                         }) => {
+const ShoppingSideBar = (
+    {
+        open,
+        toggleMenu,
+        search,
+        searchResults,
+        resultsMessage,
+        collectionItems,
+        setFilters,
+        filters,
+        allPerfumes,
+        clearFilters
+    }
+) => {
     const router = useRouter();
     const collection = router.query.collection;
     const perfumes = searchResults.length >= 0 && resultsMessage ? searchResults.length : collection === 'all' ? allPerfumes.length : collectionItems?.perfumes?.length;
@@ -32,12 +35,16 @@ const ShoppingSideBar = ({
         if (resultsMessage === "search") {
             search(filters);
         }
-    }, [resultsMessage]);
+    }, [resultsMessage, collection]);
 
     useEffect(() => {
         if (collection && collection !== 'all') {
             setFilters('sex', collection);
         }
+
+        return () => {
+            clearFilters();
+        };
     }, [collection]);
 
     const handleCheckBox = (category, value) => {
@@ -113,7 +120,8 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
     search: (filters) => dispatch(getResultsStart(filters)),
-    setFilters: (category, value) => dispatch(setFilters(category, value))
+    setFilters: (category, value) => dispatch(setFilters(category, value)),
+    clearFilters: () => dispatch(clearFilters()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingSideBar);

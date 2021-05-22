@@ -26,7 +26,7 @@ const ShoppingCartList = ({removeItem, clearItem, cartItems, addItem}) => {
                         <Paragraph>{perfume.quantity}</Paragraph>
                         <img onClick={() => addItem(perfume)} src='/assets/images/SVG/plus.svg' alt='plus-sign'/>
                     </AddMinus>
-                    <Paragraph style={{fontWeight: 600}}>${perfumeTotal.toFixed(2)}</Paragraph>
+                    <Paragraph style={{fontWeight: 600}}>GHS {perfumeTotal.toFixed(2)}</Paragraph>
                     <img onClick={() => clearItem(perfume)} src="/assets/images/SVG/close.svg" alt="close" style={{cursor: 'pointer'}}/>
                 </DesktopGridList>
                 <PhoneListWrapper>
@@ -41,7 +41,7 @@ const ShoppingCartList = ({removeItem, clearItem, cartItems, addItem}) => {
                             <Paragraph>{perfume.quantity}</Paragraph>
                             <img onClick={() => addItem(perfume)} src='/assets/images/SVG/plus.svg' alt='plus-sign'/>
                         </AddMinus>
-                        <Paragraph style={{fontWeight: 600}}>${perfumeTotal.toFixed(2)}</Paragraph>
+                        <Paragraph style={{fontWeight: 600}}>GHS {perfumeTotal.toFixed(2)}</Paragraph>
                     </PhoneListContainer>
                     <img onClick={() => clearItem(perfume)} src="/assets/images/SVG/close.svg" alt="close" style={{cursor: 'pointer'}} id='list-close'/>
                 </PhoneListWrapper>

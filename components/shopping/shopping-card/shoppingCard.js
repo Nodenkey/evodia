@@ -20,7 +20,7 @@ const ShoppingCard = ({perfume, addItem}) => {
             <HeaderFour>{perfume.name}</HeaderFour>
             <Image src={perfume.image} alt={perfume.name} width={300} height={250}/>
             <Flex spaceBetween id='card-price'>
-                <HeaderFive>${perfume.price.toFixed(2)}</HeaderFive>
+                <HeaderFive>GHS {perfume.price.toFixed(2)}</HeaderFive>
                 <Button onClick={() => addItem(perfume)} id='cart-button' type='secondary' fontSize='.8rem'>Add to cart</Button>
             </Flex>
         </ShoppingCardWrapper>
