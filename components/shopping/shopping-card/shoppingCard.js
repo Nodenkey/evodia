@@ -10,14 +10,18 @@ import {addItem} from "../../../lib/redux/cart/cart.actions";
 const ShoppingCard = ({perfume, addItem}) => {
     const router = useRouter();
 
+    const viewDetails = (e) => {
+        e.target.id !== 'cart-button' && router.push(`/perfume-details/${perfume.name}`);
+    }
+
     return (
-        <ShoppingCardWrapper onClick={() => router.push(`/perfume-details/${perfume.name}`)}>
+        <ShoppingCardWrapper onClick={viewDetails}>
             <Small>{perfume.scent}</Small>
             <HeaderFour>{perfume.name}</HeaderFour>
             <Image src={perfume.image} alt={perfume.name} width={300} height={250}/>
             <Flex spaceBetween id='card-price'>
                 <HeaderFive>${perfume.price.toFixed(2)}</HeaderFive>
-                <Button onClick={() => addItem(perfume)} type='secondary' fontSize='.8rem'>Add to cart</Button>
+                <Button onClick={() => addItem(perfume)} id='cart-button' type='secondary' fontSize='.8rem'>Add to cart</Button>
             </Flex>
         </ShoppingCardWrapper>
     );

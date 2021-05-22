@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useRouter} from "next/router";
 import {connect} from "react-redux";
 import {GoUp, ShoppingMenu, ShoppingSideBarWrapper} from "./shoppingSideBarStyles";
-import {HeaderFour, Paragraph} from "../../../globals/globalStyles";
+import {HeaderFour} from "../../../globals/globalStyles";
 import CheckBox from "../../check-box/checkBox";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleUp} from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +11,7 @@ import {createStructuredSelector} from "reselect";
 import {selectAllPerfumes} from "../../../lib/redux/perfume/perfume.selectors";
 import {selectFilters, selectResults, selectResultsMessage} from "../../../lib/redux/filter/filter.selectors";
 import {selectCollectionItems} from "../../../lib/redux/collection/collection.selectors";
+import Link from "next/link";
 
 const ShoppingSideBar = ({
                              open,
@@ -90,9 +91,11 @@ const ShoppingSideBar = ({
                 <CheckBox label='Oriental' id="oriental" name="oriental" value="oriental" category="scent"
                           onChange={handleCheckBox}/>
             </div>
-            <GoUp>
-                <FontAwesomeIcon icon={faAngleUp}/>
-            </GoUp>
+            <Link href='/collection/all'>
+                <GoUp>
+                    <FontAwesomeIcon icon={faAngleUp}/>
+                </GoUp>
+            </Link>
         </ShoppingSideBarWrapper>
     );
 };

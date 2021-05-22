@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {palette} from "../../../utils";
 
 export const ShoppingCardWrapper = styled.div`
+  cursor: pointer;
   background-color: ${palette.white};
   border-radius: 10px;
   color: black;
@@ -28,5 +29,9 @@ export const ShoppingCardWrapper = styled.div`
     button {
       padding: 15px 20px;
     }
+  }
+  #cart-button {
+    position: relative;
+    z-index: 2;
   }
 `;

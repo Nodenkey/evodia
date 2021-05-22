@@ -6,7 +6,7 @@ export const MenuWrapper = styled.div`
   height: calc(100vh - 80px);
   width: 100vw;
   color: ${palette.white};
-  background: linear-gradient(to right bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .7));
+  background: linear-gradient(to right bottom, rgba(0, 0, 0, .9), rgba(0, 0, 0, .8));
   backdrop-filter: blur(2rem);
   margin-top: 80px;
   position: fixed;

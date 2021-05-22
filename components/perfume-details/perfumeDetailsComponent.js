@@ -18,6 +18,7 @@ import {createStructuredSelector} from "reselect";
 import {getPerfumeDetailsStart} from "../../lib/redux/perfume/perfume.actions";
 import {selectIsLoadingPerfume, selectPerfumeDetails} from "../../lib/redux/perfume/perfume.selectors";
 import {addItem} from "../../lib/redux/cart/cart.actions";
+import Loader from "../loader/loader";
 
 const PerfumeDetailsComponent = ({perfumeDetails, isLoading, getPerfumeDetails, addItem}) => {
     const router = useRouter();
@@ -30,7 +31,7 @@ const PerfumeDetailsComponent = ({perfumeDetails, isLoading, getPerfumeDetails, 
     }, [getPerfumeDetails, perfumeName]);
 
     if (isLoading) {
-        return <h1>Loading</h1>
+        return <Loader/>
     }
 
     return (

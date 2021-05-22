@@ -18,6 +18,10 @@ const Navbar = ({cartItems}) => {
         setOpenMenu(!openMenu);
     }
 
+    const closeMenu = () => {
+        setOpenMenu(false);
+    }
+
     const toggleCart = () => {
         setOpenShoppingBag(!openShoppingBag);
     }
@@ -67,7 +71,7 @@ const Navbar = ({cartItems}) => {
                 </Container>
             </NavbarWrapper>
             {
-                openMenu && <Menu/>
+                openMenu && <Menu closeMenu={closeMenu}/>
             }
         </>
     );
