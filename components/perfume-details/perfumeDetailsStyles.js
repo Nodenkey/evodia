@@ -31,6 +31,9 @@ export const PerfumeDetailsWrapper = styled(Grid)`
     }
     @media (max-width: 600px) {
       padding: 0 5vw;
+      img {
+        border-radius: 10px;
+      }
     }
   }
 
