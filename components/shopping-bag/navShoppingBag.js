@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {NavShoppingBagWrapper, ShoppingItems, ShoppingItemTextContainer} from "./navShoppingBagStyles";
-import {HeaderFive, Paragraph} from "../../globals/globalStyles";
+import {EmptyContainer, NavShoppingBagWrapper, ShoppingItems, ShoppingItemTextContainer} from "./navShoppingBagStyles";
+import {Flex, HeaderFive, Paragraph} from "../../globals/globalStyles";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
@@ -11,12 +11,12 @@ import {selectCartItems} from "../../lib/redux/cart/cart.selectors";
 
 const NavShoppingBag = ({num, cartItems}) => {
         return (
-            <NavShoppingBagWrapper vertical>
+            <NavShoppingBagWrapper vertical justifyFlexStart>
                 {
-                    num === 0 ? <>
+                    num === 0 ? <EmptyContainer vertical>
                             <FontAwesomeIcon icon={faShoppingCart}/>
                             <Paragraph>Your cart is empty</Paragraph>
-                        </> :
+                        </EmptyContainer> :
                         <>
                             {
                                 cartItems.map((perfume) =>

@@ -39,16 +39,18 @@ const PerfumeDetailsComponent = ({perfumeDetails, isLoading, getPerfumeDetails, 
             <Container>
                 <PerfumeDetailsWrapper num='2' gap='100px' justifyFlexStart phoneGap='30px' oneColumnIPad>
                     <ImageFillContainer id='details-image'>
-                        <Image src={perfumeDetails?.image ?? '/assets/images/jpg/bvlgari.jpg'} alt={perfumeDetails?.name} layout='fill'/>
+                        <Image src={perfumeDetails?.image ?? '/assets/images/jpg/bvlgari.jpg'}
+                               alt={perfumeDetails?.name} layout='fill'/>
                     </ImageFillContainer>
                     <PerfumeTextContainer>
                         <HeaderTwo>{perfumeDetails?.name}</HeaderTwo>
-                        <HeaderFive><span style={{color: `${palette.lightGrey}`}}>Sex:</span> {perfumeDetails?.perfumeCollection.name}</HeaderFive>
-                        <HeaderThree>${perfumeDetails?.price.toFixed(2)}</HeaderThree>
                         <Flex justifyFlexStart>
-                            <Button>Buy Now</Button>
-                            <Button type='tertiary' onClick={() => addItem(perfumeDetails)}>Add to cart</Button>
+                            <HeaderFive><span
+                                style={{color: `${palette.lightGrey}`}}>Sex:</span> {perfumeDetails?.perfumeCollection.name}
+                            </HeaderFive>
+                            <HeaderThree>${perfumeDetails?.price.toFixed(2)}</HeaderThree>
                         </Flex>
+                        <Button onClick={() => addItem(perfumeDetails)}>Add to cart</Button>
                         <Paragraph>{perfumeDetails?.description}</Paragraph>
                     </PerfumeTextContainer>
                 </PerfumeDetailsWrapper>

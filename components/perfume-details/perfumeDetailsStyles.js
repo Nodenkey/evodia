@@ -55,11 +55,11 @@ export const PerfumeDetailsContainer = styled.div`
 
 
 export const PerfumeTextContainer = styled.div`
-  h2{
-    margin-top: 0;
+  h2, h5{
+    margin: 0;
   }
-  button:first-of-type {
-    margin-right: 10px;
+  h5 {
+    margin-right: 10vw;
   }
   p {
     margin-top: 35px;

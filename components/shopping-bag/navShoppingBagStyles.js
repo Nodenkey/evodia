@@ -44,3 +44,10 @@ export const ShoppingItemTextContainer = styled.div`
     margin: 0;
   }
 `;
+export const EmptyContainer = styled(Flex)`
+  height: 180px;
+  width: 100%;
+  p {
+    margin-bottom: 0;
+  }
+`;
