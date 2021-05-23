@@ -24,7 +24,7 @@ export const BestSellerWrapper = styled(Section)`
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 4; /* number of lines to show */
+      -webkit-line-clamp: 3; /* number of lines to show */
       -webkit-box-orient: vertical;
     }
     >div>div>div:nth-child(2)>#best-description {

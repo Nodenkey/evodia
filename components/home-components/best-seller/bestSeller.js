@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
+import {useRouter} from "next/router";
 import {BestSellerWrapper} from "./bestSellerStyles";
 import {
     Container,
@@ -22,10 +23,16 @@ import {getSpecialPerfumesStart} from "../../../lib/redux/perfume/perfume.action
 import {addItem} from "../../../lib/redux/cart/cart.actions";
 
 const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfumes, specialPerfumesError, addItem}) => {
+    const router = useRouter();
+
 
     useEffect(() => {
         getSpecialPerfumes();
     }, [getSpecialPerfumes]);
+
+    const viewDetails = (e, perfume) => {
+        e.target.id !== 'best-cart-button' && router.push(`/perfume-details/${perfume.name}`);
+    }
 
     return (
         <BestSellerWrapper>
@@ -34,7 +41,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                 <Grid num={['1.2fr 2fr 1.2fr']} gap='50px' phoneGap='30px' oneColumnIPad>
                     {
                         specialPerfumes?.map(perfume => (
-                            <div style={{width: '100%'}} key={perfume.id}>
+                            <div style={{width: '100%', cursor: 'pointer'}} key={perfume.id} onClick={(e) => viewDetails(e, perfume)}>
                                 <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
                                     <Image src={perfume?.image} alt={perfume?.name} layout='fill' />
                                 </ImageFillContainer>
@@ -46,7 +53,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                                     <Paragraph>
                                         GHS {perfume?.price.toFixed(2)}
                                     </Paragraph>
-                                    <Button onClick={() => addItem(perfume)} type='secondary'>Add to cart</Button>
+                                    <Button id='best-cart-button' onClick={() => addItem(perfume)} type='secondary'>Add to cart</Button>
                                 </Flex>
                             </div>
                         ))
