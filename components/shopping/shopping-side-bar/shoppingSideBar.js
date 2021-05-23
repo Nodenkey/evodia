@@ -60,6 +60,20 @@ const ShoppingSideBar = (
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
+    useEffect(() => {
+        const html = document.querySelector('html');
+        if (open) {
+            html.style.width = '100vw';
+            html.style.height = '100vh';
+            html.style.overflow = 'hidden';
+        } else {
+            html.style.width = 'initial';
+            html.style.height = 'initial';
+            html.style.overflowX = 'hidden';
+            html.style.overflowY = 'auto';
+        }
+    }, [open])
+
     return (
         <ShoppingSideBarWrapper open={open} className='shopping-wrapper' onClick={closeSideBar}>
             <div>
