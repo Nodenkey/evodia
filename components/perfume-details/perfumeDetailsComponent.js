@@ -48,7 +48,7 @@ const PerfumeDetailsComponent = ({perfumeDetails, isLoading, getPerfumeDetails, 
                             <HeaderFive><span
                                 style={{color: `${palette.lightGrey}`}}>Sex:</span> {perfumeDetails?.perfumeCollection.name}
                             </HeaderFive>
-                            <HeaderThree>${perfumeDetails?.price.toFixed(2)}</HeaderThree>
+                            <HeaderThree>GHS {perfumeDetails?.price.toFixed(2)}</HeaderThree>
                         </Flex>
                         <Button onClick={() => addItem(perfumeDetails)}>Add to cart</Button>
                         <Paragraph>{perfumeDetails?.description}</Paragraph>
