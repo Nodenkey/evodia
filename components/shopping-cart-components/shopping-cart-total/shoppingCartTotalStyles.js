@@ -24,9 +24,10 @@ export const ShoppingCartTotalWrapper = styled.div`
 `;
 
 export const PriceContainer = styled.div`
-  width: 200px;
+  width: 100%;
   @media only screen and (min-width: 600px) {
     margin-left: auto;
+    width: 300px;
   }
 `;
 
@@ -48,7 +49,7 @@ export const PaymentButtonContainer = styled(Flex)`
   }
   @media only screen and (min-width: 600px) {
     button {
-      width: 200px;
+      width: 300px;
     }
   }
 `;
