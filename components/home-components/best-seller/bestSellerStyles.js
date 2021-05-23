@@ -20,6 +20,20 @@ export const BestSellerWrapper = styled(Section)`
     }
   }
   @media only screen and (min-width: 600px) {
+    #best-description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
+    >div>div>div:nth-child(2)>#best-description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 6; /* number of lines to show */
+      -webkit-box-orient: vertical;
+    }
     >div>div>div:nth-child(2)>div:first-child {
       height: 400px;
     }

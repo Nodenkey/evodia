@@ -39,7 +39,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                                     <Image src={perfume?.image} alt={perfume?.name} layout='fill' />
                                 </ImageFillContainer>
                                 <HeaderFour>{perfume?.name} Perfume</HeaderFour>
-                                <Paragraph>
+                                <Paragraph id='best-description'>
                                     {perfume?.description}
                                 </Paragraph>
                                 <Flex spaceBetween className='buy'>
