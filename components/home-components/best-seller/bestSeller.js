@@ -21,10 +21,21 @@ import {
 } from "../../../lib/redux/perfume/perfume.selectors";
 import {getSpecialPerfumesStart} from "../../../lib/redux/perfume/perfume.actions";
 import {addItem} from "../../../lib/redux/cart/cart.actions";
+import {gsap} from "gsap/dist/gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfumes, specialPerfumesError, addItem}) => {
     const router = useRouter();
 
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.best-seller', {opacity: 0, y: 100, duration: 1.5, stagger: {
+            each: .3,
+            from: "center",
+            }, ease: 'back.out(1.7)', scrollTrigger: {
+            trigger: '.best-seller',
+            }})
+    })
 
     useEffect(() => {
         getSpecialPerfumes();
@@ -41,7 +52,7 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
                 <Grid num={['1.2fr 2fr 1.2fr']} gap='50px' phoneGap='30px' oneColumnIPad>
                     {
                         specialPerfumes?.map(perfume => (
-                            <div style={{width: '100%', cursor: 'pointer'}} key={perfume.id} onClick={(e) => viewDetails(e, perfume)}>
+                            <div style={{width: '100%', cursor: 'pointer'}} className='best-seller' key={perfume.id} onClick={(e) => viewDetails(e, perfume)}>
                                 <ImageFillContainer fixedHeight='300px' phoneHeight='300px' className='image-container'>
                                     <Image src={perfume?.image} alt={perfume?.name} layout='fill' />
                                 </ImageFillContainer>

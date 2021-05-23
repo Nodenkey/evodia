@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {palette} from "../../../utils";
+import {palette, typeScale} from "../../../utils";
 
 export const HomeBannerWrapper = styled.div`
   min-height: 100vh;
@@ -25,7 +25,22 @@ export const HomeBannerTextContainer = styled.div`
   width: 100%;
 
   h1 {
-    margin-top: 0;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    height: calc(${typeScale.headerTwo} + 10px);
+    
+    .hide-text {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      transform: translateY(100%);
+    }
+    @media only screen and (min-width: 600px) {
+      height: calc(${typeScale.headerOne} + 10px);
+    }
+  }
+  h1:last-of-type {
     margin-bottom: 30px;
   }
 

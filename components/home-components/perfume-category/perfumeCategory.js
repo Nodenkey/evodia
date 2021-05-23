@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {HeaderTwo, ImageFillContainer, Paragraph, Section} from "../../../globals/globalStyles";
 import {CategoryGrid, PerfumeCategoryWrapper} from "./perfumeCategoryStyles";
 import Image from "next/image";
 import Button from "../../button/button";
+import {gsap} from "gsap/dist/gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 const PerfumeCategory = () => {
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.men-image', {scale: .6, duration: 1, ease: 'back.out(1.7)', scrollTrigger: {
+            trigger: '.men-image',
+            start: '50% bottom'
+            }})
+        gsap.from('.women-image', {scale: .6, duration: 1, ease: 'back.out(1.7)', scrollTrigger: {
+            trigger: '.women-image',
+            start: '50% bottom'
+            }})
+    }, [])
     return (
         <PerfumeCategoryWrapper>
             <Section>
                 <CategoryGrid num='2' alignFlexStart phoneGap='30px'>
-                    <ImageFillContainer className='image' fixedHeight='500px' phoneHeight='300px'>
+                    <ImageFillContainer className='image men-image' fixedHeight='500px' phoneHeight='300px'>
                         <Image src='/assets/images/jpg/perfume-guy.jpg' layout='fill' alt='male model'
                                objectPosition="50% 10%"/>
                     </ImageFillContainer>
@@ -36,7 +50,7 @@ const PerfumeCategory = () => {
                         </Paragraph>
                         <Button type='secondary' link='/collection/women'>Shop Now</Button>
                     </div>
-                    <ImageFillContainer className='image' fixedHeight='500px' phoneHeight='300px'>
+                    <ImageFillContainer className='image women-image' fixedHeight='500px' phoneHeight='300px'>
                         <Image src='/assets/images/jpg/perfume-girl.jpg' layout='fill' alt='male model'
                                objectPosition="50% 10%" />
                     </ImageFillContainer>

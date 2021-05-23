@@ -23,6 +23,7 @@ export const Glass = styled.div`
   max-width: 100%;
   background: linear-gradient(to right bottom, rgba(225, 225, 225, .4), rgba(225, 225, 225, .05));
   backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem);
   z-index: 3;
   position: relative;
   padding: 50px 5vw;
