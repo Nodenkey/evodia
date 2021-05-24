@@ -28,16 +28,6 @@ const BestSeller = ({getSpecialPerfumes, specialPerfumes, isLoadingSpecialPerfum
     const router = useRouter();
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('.best-seller', {opacity: 0, y: 100, duration: 1.5, stagger: {
-            each: .3,
-            from: "center",
-            }, ease: 'back.out(1.7)', scrollTrigger: {
-            trigger: '.best-seller',
-            }})
-    })
-
-    useEffect(() => {
         getSpecialPerfumes();
     }, [getSpecialPerfumes]);
 
